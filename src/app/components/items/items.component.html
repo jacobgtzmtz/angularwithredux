@@ -1,0 +1,14 @@
+<div *ngFor="let item of items" (click)="selected.emit(item)">
+  <div class="card border-secondary mb-3" style="max-width: 18rem;">
+    <div class="card-header">{{item.name}}</div>
+    <div class="card-body text-secondary">
+      <p class="card-text">{{item.description}}</p>
+      <div>
+        <button (click)="selected.emit(item);" type="button" class="btn btn-primary">Edit
+        </button>
+        <button (click)="deleted.emit(item); $event.stopPropagation();" type="button" class="btn btn-danger">Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<form>
+  <div *ngIf="selectedItem.id">
+    Editing {{originalName}}</div>
+  <div *ngIf="!selectedItem.id"><h4>Create new Item</h4></div>
+  <div class="form-group">
+    <label for="itemName">Name</label>
+    <input type="text" class="form-control" id="itemName" placeholder="Name" [(ngModel)]="selectedItem.name" name="name">
+  </div>
+  <div class="form-group">
+    <label for="itemDescription">Description</label>
+    <textarea class="form-control" id="itemDescription" rows="3" placeholder="Description" [(ngModel)]="selectedItem.description" name="description"></textarea>
+  </div>
+  <button type="submit" (click)="cancelled.emit(selectedItem)" class="btn btn-secondary">Cancel
+  </button>
+  <button type="submit" (click)="saved.emit(selectedItem)" class="btn btn-success">Save
+  </button>
+</form>

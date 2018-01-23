@@ -1,0 +1,32 @@
+<div class="container" *ngIf="post | async as p">
+  <div class="row">
+    <div class="col">
+      <header>
+        <h3>Plus: ejercicio con las acciones fuera del componente</h3>
+      </header>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="alert alert-primary" role="alert">
+      <div class="col">
+        <span>Encuesta:
+          <strong>{{p.text}}</strong>
+        </span>
+        <p>
+          <button (click)="upVote()" type="button" class="btn btn-primary">Yes</button>
+          <button (click)="downvote()" type="button" class="btn btn-warning">No</button>
+          <button (click)="resetPost()" type="button" class="btn btn-dark">Reset</button>
+        </p>
+      </div>
+      <div class="col">
+        <span>
+          <strong>Votes:</strong> {{p.likes}}</span>
+      </div>
+      <div class="col">
+          <input type="text" class="form-control" id="itemNewName" placeholder="New name for the poll" [(ngModel)]="text">
+        <button (click)="editText()" type="button" class="btn btn-info">Change the poll's title </button>
+      </div>
+    </div>
+  </div>
+</div>
